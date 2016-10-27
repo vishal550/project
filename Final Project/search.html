@@ -1,0 +1,43 @@
+<!DOCTYPEhtml>
+<html>
+    <head>
+	     <title>Book Store Search</title>
+		 <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		  <script src="https://cloud.github.com/downloads/knockout/knockout/knockout-2.0.0.debug.js"></script>
+		 <link rel="stylesheet" href="main.css">
+	</head>
+    <body>
+	     <div class="container">
+		     <div class="row">
+			     <div class="col-xs-12 Welcome_text">Welcome</div>
+			 </div>
+		     <div class="row">
+			     <span class="col-xs-6 add_new_book">
+			     <button type="button" class="btn btn-default  responsive-width">Add New Book</button>
+				 </span>
+				
+				 <span class=" col-xs-6 add_New_Author">
+			     <button type="button" class="btn btn-default responsive-width">Add New Author</button>
+				 </span>
+			    
+				
+            <input type="search" data-bind="value:search_basis">
+
+
+			 </div>
+		 </div>
+		 <script>
+function ViewModel(){
+
+this.search_basis=ko.observable('all books');
+
+}
+ko.applyBindings(new ViewModel);
+</script>
+		
+	</body>
+</html>

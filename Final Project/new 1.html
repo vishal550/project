@@ -1,0 +1,23 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+<script src="https://cloud.github.com/downloads/knockout/knockout/knockout-2.0.0.debug.js"></script>
+</head>
+<body>
+<p>
+lastName name:<input data-bind="value:lastName">
+</p>
+<button data-bind="click:update">
+change</button>
+</body>
+<script>
+function ViewModel(){
+this.firstName=ko.observable('vishal');
+this.lastName=ko.observable('patil');
+this.update=function(){
+this.lastName('ram');
+}
+}
+ko.applyBindings(new ViewModel);
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://knockoutjs.com/downloads/knockout-3.4.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+      <form>
+        isbn:<input type="text" data-bind="value:isbn">
+         book_title:<input type="text" data-bind="value:book_title">
+        book_auhor:<input type="text" data-bind="value:book_auhor">
+         book price:<input type="text" data-bind="value:book_price">
+         available on:<input type="text" data-bind="value:available_on">
+      </form>
+        <button data-bind="click:Add_New_Book">
+        Add New Book</button>
+</body>
+<script>
+      function ViewModel(){
+	    
+        var self=this;
+        this.isbn=ko.observable();
+        this.book_title=ko.observable();
+        this.book_price=ko.observable();
+        this.book_auhor=ko.observable();
+        this.available_on=ko.observable();
+        
+		this.Add_New_Book=function(){
+		          
+                  var data={isbn:self.isbn,
+				            book_title:self.book_title,
+							book_price:self.book_price,
+							book_auhor:self.book_auhor,
+							available_on:self.available_on,
+							};
+                  jQuery.get("http://localhost:8888/bookdata",data,function(returnedData) {
+                     console.log(returnedData);
+                   });
+		}
+}
+ko.applyBindings(new ViewModel);
+</script>
+</html>
